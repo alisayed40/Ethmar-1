@@ -72,7 +72,7 @@ body.no-scroll {
   inset: 0;
   background: radial-gradient(circle at center,
 #ffffff 0%,
-#ffffff 30%,
+#ffffff 40%,
 #DADDE3 75%,
 #CDD1D8 100%);
   display: flex;
@@ -710,4 +710,5 @@ hr {
   border-top: 1px solid #e5e5e5;
   color: #6c757d;
   font-size: 15px;
+
 }
