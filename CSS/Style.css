@@ -218,6 +218,10 @@ body.no-scroll {
     font-size: 12px !important;
     padding: 8px 6px !important;
   }
+      #board .col {
+        padding-left: 5px !important;
+        padding-right: 5px !important;
+    }
 }
 
 
@@ -710,5 +714,4 @@ hr {
   border-top: 1px solid #e5e5e5;
   color: #6c757d;
   font-size: 15px;
-
 }
