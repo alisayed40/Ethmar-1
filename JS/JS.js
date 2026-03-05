@@ -1,12 +1,24 @@
+// امنع المتصفح من حفظ مكان السكروول
+if ('scrollRestoration' in history) {
+  history.scrollRestoration = 'manual';
+}
+
+// ارجع الصفحة لأعلى عند كل refresh
+window.scrollTo(0, 0);
+
+// ===============================
+// Typing Text
+// ===============================
 
 const text = `إثمار شركة سعودية مصرية رائدة في تنظيم الفعاليات العقارية والاستثمارية في الوطن العربي منذ 2008.
 على مر السنين، قمنا بالعمل مع أكثر من 400 مؤسسة في القطاع العقاري وتنظيم أكثر من 70 فعالية محلية وإقليمية في الدول العربية تحت مظلة رعايات حكومية محلية ودولية وتمثيل دولي رفيع المستوى، وبالشراكة مع القطاع الخاص والعام، والذين حققوا طفرة كبيرة في الأفكار الترويجية والمفاهيم التي تقام بها المعارض والفعاليات العقارية في الوطن العربي.`;
 
 const element = document.getElementById("typing-text");
+
 let i = 0;
 let started = false;
-const speed = 15;
-const delayBeforeStart = 2500; // 👈 هنا الديلاي
+const speed = 10;
+const delayBeforeStart = 7500;
 
 function typeWriter() {
   if (i < text.length) {
@@ -16,15 +28,56 @@ function typeWriter() {
   }
 }
 
-const observer = new IntersectionObserver(entries => {
-  entries.forEach(entry => {
-    if (entry.isIntersecting && !started) {
-      started = true;
-      setTimeout(() => {
-        typeWriter();
-      }, delayBeforeStart);
-    }
-  });
-}, { threshold: 0.5 });
 
-observer.observe(element);
+// ===============================
+// Scroll Trigger (بسيطة جداً)
+// ===============================
+
+const triggerOffset = 225; // غير الرقم براحتك
+
+function handleScroll() {
+
+  document.querySelectorAll(".animate-section").forEach(section => {
+
+    const sectionTop = section.getBoundingClientRect().top;
+
+    if (sectionTop <= triggerOffset && !section.classList.contains("show")) {
+
+      section.classList.add("show");
+
+      // لو ده about شغل typing مرة واحدة
+      if (!started && section.id === "about") {
+        started = true;
+        setTimeout(typeWriter, delayBeforeStart);
+      }
+    }
+
+  });
+
+}
+
+window.addEventListener("scroll", handleScroll);
+window.addEventListener("load", handleScroll);
+
+const video = document.getElementById("intro-video");
+const overlay = document.getElementById("intro-overlay");
+
+// قفل السكروول
+document.documentElement.classList.add("no-scroll");
+document.body.classList.add("no-scroll");
+
+video.onended = () => {
+
+  overlay.style.opacity = "0";
+  overlay.style.transition = "opacity 0.6s";
+
+  setTimeout(() => {
+    overlay.remove();
+
+    // رجع السكروول
+    document.documentElement.classList.remove("no-scroll");
+    document.body.classList.remove("no-scroll");
+
+  }, 600);
+
+};

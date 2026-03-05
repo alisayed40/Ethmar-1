@@ -3,9 +3,19 @@ html, body {
     overflow-x: hidden;
 }
 
-
 section {
   scroll-margin-top: 150px; /* نفس ارتفاع الناف */
+}
+
+.animate-section {
+  opacity: 0;
+  transform: translateY(50px);
+  transition: 0.8s ease;
+}
+
+.animate-section.show {
+  opacity: 1;
+  transform: translateY(0);
 }
 
 body {
@@ -18,7 +28,7 @@ body {
 h2{
   color: #15416d;
 }
-/* width of scrollbar */
+
 ::-webkit-scrollbar {
     width: 15px;
 }
@@ -28,18 +38,59 @@ h2{
     background: #f3f4f6;
 }
 
-/* draggable bar */
+
 ::-webkit-scrollbar-thumb {
     background: #15416d;      /* your main color */
     border-radius: 10px;
     border: 3px solid #f1f1f1;
 }
 
-/* hover effect */
+
 ::-webkit-scrollbar-thumb:hover {
     background: #084298;
 }
 
+html.no-scroll,
+body.no-scroll {
+  overflow: hidden;
+}
+
+/* اخفاء scrollbar للمتصفحات */
+html.no-scroll::-webkit-scrollbar,
+body.no-scroll::-webkit-scrollbar {
+  display: none;
+}
+
+/* Firefox */
+html.no-scroll,
+body.no-scroll {
+  scrollbar-width: none;
+}
+
+#intro-overlay {
+  position: fixed;
+  inset: 0;
+  background: radial-gradient(circle at center,
+#ffffff 0%,
+#ffffff 30%,
+#DADDE3 75%,
+#CDD1D8 100%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 99999;
+  transition: opacity 0.6s ease, visibility 0.6s ease;
+}
+
+#intro-overlay video {
+  width: 300px; 
+  max-width: 80%;
+}
+
+#intro-overlay.hide {
+  opacity: 0;
+  visibility: hidden;
+}
 
 /* ------ Navbar ------*/
 .navbar {
@@ -156,6 +207,19 @@ h2{
   }
 }
 
+@media screen and (max-width: 992px) {
+    .navbar-nav {
+    display: flex !important;
+    flex-direction: row !important;
+    flex-wrap: wrap !important;
+    justify-content: center !important;
+    }
+  .nav-link {
+    font-size: 12px !important;
+    padding: 8px 6px !important;
+  }
+}
+
 
 /*
 .privacy-link .nav-item {
@@ -199,6 +263,7 @@ h2{
 #about {
     display: flex;
     justify-content: center;
+    animation-delay: 5s;
     
 }
 
@@ -210,6 +275,7 @@ h2{
 .about-text{
   transform: translateX(-100vw);
   animation: about-text-animation 1.7s ease-in-out forwards;
+  animation-delay: 5s;
 }
 @keyframes about-img-animation {
   100% {
