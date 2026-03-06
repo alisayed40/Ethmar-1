@@ -210,7 +210,7 @@ body.no-scroll {
 @media screen and (max-width: 992px) {
     .navbar-nav {
     display: flex !important;
-    flex-direction: row !important;
+    flex-direction: row-reverse !important;
     flex-wrap: wrap !important;
     justify-content: center !important;
     }
@@ -278,8 +278,10 @@ body.no-scroll {
 
 .about-text{
   transform: translateX(-100vw);
+}
+
+.animate-section.show .about-text{
   animation: about-text-animation 1.7s ease-in-out forwards;
-  animation-delay: 5s;
 }
 @keyframes about-img-animation {
   100% {
@@ -297,7 +299,7 @@ body.no-scroll {
   font-size: 18px;
   line-height: 1.9;
   text-align: right;
-  white-space: pre-line; /* يحافظ على النزول سطر */
+  white-space: pre-line; 
   min-height: 120px;
 }
 
@@ -355,25 +357,41 @@ body.no-scroll {
 }
 
 
-#board .kevork{
-  transform: translateX(-100vw);
-  animation: about-text-animation 2.5s ease-in-out forwards;
-  animation-delay: 2.5s;
-}
-
-#board .mohamed{
-  transform: translateX(-100vw);
-  animation: about-text-animation 2s ease-in-out forwards;
-  animation-delay: 2.5s;
-}
-
+#board .kevork,
+#board .mohamed,
 #board .fathallah{
-  transform: translateX(-100vw);
-  animation: about-text-animation 1.7s ease-in-out forwards;
-  animation-delay: 2.5s;
+  transform: translateX(-150vw);
 }
 
-/* الكارد */
+#board.animate-section.show .kevork{
+  animation: about-text-animation 3.4s ease-in-out forwards;
+}
+
+#board.animate-section.show .mohamed{
+  animation: about-text-animation 2.7s ease-in-out forwards;
+}
+
+#board.animate-section.show .fathallah{
+  animation: about-text-animation 2.2s ease-in-out forwards;
+}
+
+/* الموبايل */
+@media (max-width: 767px){
+
+  #board.animate-section.show .kevork{
+    animation: about-text-animation 2.2s ease-in-out forwards;
+  }
+
+  #board.animate-section.show .mohamed{
+    animation: about-text-animation 2.7s ease-in-out forwards;
+  }
+
+  #board.animate-section.show .fathallah{
+    animation: about-text-animation 3.4s ease-in-out forwards;
+  }
+
+}
+
 #board .board-card {
   position: relative;
   overflow: hidden;
@@ -385,13 +403,13 @@ body.no-scroll {
   box-shadow: 0 8px 25px rgba(0,0,0,0.08);
 }
 
-/* تحريك خفيف */
+
 #board .board-card:hover {
   transform: translateY(-1px);
   box-shadow: 0 15px 35px rgba(0,0,0,0.15);
 }
 
-/* الصورة الدائرية */
+
 #board .image-wrapper {
   position: absolute;
   top: 10px;
@@ -406,17 +424,17 @@ body.no-scroll {
   transition: 0.4s ease;
 }
 
-/* الصورة نفسها */
+
 #board .image-wrapper img {
   width: 100%;
   height: 100%;
-  object-fit: contain;   /* 👈 المهم */
+  object-fit: contain;   
   object-position: center;
-  background: #fff;      /* عشان لو فيه فراغ */
+  background: #fff;      
   transition: 0.4s ease;
 }
 
-/* عند الـ hover الصورة تكبر وتظهر كاملة */
+
 #board .board-card:hover .image-wrapper {
   width: 140px;
   height: 140px;
@@ -427,7 +445,7 @@ body.no-scroll {
   transform: scale(1.1);
 }
 
-/* العنوان */
+
 #board .card-title {
   color: #15416d;
   font-size: 20px;
@@ -435,7 +453,7 @@ body.no-scroll {
   margin-bottom: 10px;
 }
 
-/* النص مخفي */
+
 #board .card-text {
   max-height: 0;
   opacity: 0;
@@ -446,18 +464,18 @@ body.no-scroll {
   line-height: 1.8;
 }
 
-/* يظهر عند الهوفر */
+
 #board .board-card:hover .card-text {
   max-height: 400px;
   opacity: 1;
   transform: translateY(0);
 }
 
-@media screen and (max-width: 992px) {
+@media screen and (max-width: 768px) {
   #board .col{
   
-    padding-left: 50px;
-    padding-right: 50px;
+    padding-left: 50px !important;
+    padding-right: 50px !important;
 
   }
 }
@@ -468,6 +486,8 @@ body.no-scroll {
 
 
 /*------ Events Section ------*/
+
+
 
 
 .event-horizontal {
