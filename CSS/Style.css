@@ -870,3 +870,43 @@ footer .social {
 .navbar-toggler {
     padding: 9px;
 }
+
+#scrollToTopBtn {
+  position: fixed;
+    top: 120px;
+    right: 8px;
+    z-index: 1000;
+    background-color: #15416d;
+    color: white;
+    border: none;
+    padding: 3px 17px;
+    border-radius: 50%;
+    font-size: 30px;
+    cursor: pointer;
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(20px) scale(0.9);
+    transition:
+     opacity 0.3s ease,
+      visibility 0.3s ease, 
+      transform 0.3s ease, 
+      box-shadow 0.3s ease, 
+      background-color 0.3s ease;
+}
+
+#scrollToTopBtn.show {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0) scale(1);
+}
+
+#scrollToTopBtn:hover {
+  transform: translateY(-6px) scale(1.08);
+  box-shadow: 0 10px 25px rgba(0,0,0,0.25);
+  background-color: #0f2f4f;
+}
+
+#scrollToTopBtn:active {
+  transform: translateY(-2px) scale(0.92);
+  box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+}

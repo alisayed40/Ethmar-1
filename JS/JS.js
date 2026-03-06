@@ -15,7 +15,7 @@ const element = document.getElementById("typing-text");
 
 let i = 0;
 let started = false;
-const speed = 10;
+const speed = 25;
 const delayBeforeStart = 7500;
 
 function typeWriter() {
@@ -76,3 +76,29 @@ video.onended = () => {
   }, 600);
 
 };
+
+//--------- Scroll to top button ----------//
+document.addEventListener("DOMContentLoaded", function () {
+
+  const scrollBtn = document.getElementById("scrollToTopBtn");
+
+  if (!scrollBtn) return;
+
+  // اظهار الزرار عند النزول
+  window.addEventListener("scroll", function () {
+    if (window.scrollY > 300) {
+      scrollBtn.classList.add("show");
+    } else {
+      scrollBtn.classList.remove("show");
+    }
+  });
+
+  // الضغط على الزرار
+  scrollBtn.addEventListener("click", function () {
+    window.scrollTo({
+      top: 0,
+      behavior: "smooth"
+    });
+  });
+
+});
