@@ -1,9 +1,7 @@
-// امنع المتصفح من حفظ مكان السكروول
+
 if ('scrollRestoration' in history) {
   history.scrollRestoration = 'manual';
 }
-
-// ارجع الصفحة لأعلى عند كل refresh
 window.scrollTo(0, 0);
 
 // ===============================
@@ -30,10 +28,10 @@ function typeWriter() {
 
 
 // ===============================
-// Scroll Trigger (بسيطة جداً)
+// Scroll Trigger 
 // ===============================
 
-const triggerOffset = 225; // غير الرقم براحتك
+const triggerOffset = 225; 
 
 function handleScroll() {
 
@@ -45,7 +43,6 @@ function handleScroll() {
 
       section.classList.add("show");
 
-      // لو ده about شغل typing مرة واحدة
       if (!started && section.id === "about") {
         started = true;
         setTimeout(typeWriter, delayBeforeStart);
@@ -61,8 +58,6 @@ window.addEventListener("load", handleScroll);
 
 const video = document.getElementById("intro-video");
 const overlay = document.getElementById("intro-overlay");
-
-// قفل السكروول
 document.documentElement.classList.add("no-scroll");
 document.body.classList.add("no-scroll");
 
@@ -74,7 +69,7 @@ video.onended = () => {
   setTimeout(() => {
     overlay.remove();
 
-    // رجع السكروول
+
     document.documentElement.classList.remove("no-scroll");
     document.body.classList.remove("no-scroll");
 

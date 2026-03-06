@@ -708,10 +708,145 @@ hr {
 }
 
 
-
+/*------Footer------*/
 .footer-section {
   background: #f4f6f9;
   border-top: 1px solid #e5e5e5;
   color: #6c757d;
   font-size: 15px;
+}
+
+footer.py-4 {
+  
+    padding-top: 0.7rem !important;
+    padding-bottom: 0.7rem !important;
+
+}
+
+footer .social {
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+    padding: 10px 0;
+}
+
+.social a {
+    color: var(--background-color);
+    font-size: 24px;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: var(--text-color);
+    transition: transform 0.4s ease, background 0.3s ease, box-shadow 0.3s ease;
+    position: relative;
+    text-decoration: none;
+}
+
+.social a:hover {
+    color: white;
+    transform: translateY(-8px) scale(1.1);
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.3);
+}
+
+.facebook:hover {
+    background: #1877F2;
+}
+
+.instagram:hover {
+    background: radial-gradient(circle at 30% 107%, #fdf497 0%, #fd5949 45%, #d6249f 60%, #285AEB 90%);
+}
+
+.linkedin:hover {
+    background: #0077b5;
+}
+
+.twitter:hover {
+    background: black;
+}
+
+.tiktok:hover {
+  color: white;
+  background: linear-gradient(303deg, #25F4EE, #000000, #FE2C55)
+}
+
+.footer-text {
+    color: #aaa;
+    font-size: 14px;
+    margin-top: 10px;
+}
+
+.shape-shit {
+    display: inline-block;
+    width: 1.5em;
+    height: 1.5em;
+    vertical-align: middle;
+    background-color: var(--text-color);
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: 100%;
+}
+
+.animated-icon2 {
+    width: 30px;
+    height: 20px;
+    position: relative;
+    margin: 0 auto;
+    transform: rotate(0deg);
+    transition: .5s ease-in-out;
+    cursor: pointer;
+}
+
+.animated-icon2 span {
+    display: block;
+    position: absolute;
+    height: 3px;
+    width: 100%;
+    background: var(--text-color);
+    /* Change to your desired color */
+    border-radius: 9px;
+    opacity: 1;
+    left: 0;
+    transform: rotate(0deg);
+    transition: .25s ease-in-out;
+}
+
+.animated-icon2 span:nth-child(1) {
+    top: 0px;
+}
+
+.animated-icon2 span:nth-child(2),
+.animated-icon2 span:nth-child(3) {
+    top: 8px;
+}
+
+.animated-icon2 span:nth-child(4) {
+    top: 16px;
+}
+
+/* Active state animation */
+.second-button.active .animated-icon2 span:nth-child(1) {
+    top: 11px;
+    width: 0%;
+    left: 50%;
+}
+
+.second-button.active .animated-icon2 span:nth-child(2) {
+    transform: rotate(45deg);
+}
+
+.second-button.active .animated-icon2 span:nth-child(3) {
+    transform: rotate(-45deg);
+}
+
+.second-button.active .animated-icon2 span:nth-child(4) {
+    top: 11px;
+    width: 0%;
+    left: 50%;
+}
+
+.navbar-toggler {
+    padding: 9px;
 }
