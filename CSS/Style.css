@@ -128,6 +128,7 @@ body.no-scroll {
     border-radius: 12px;
     text-align: center;
     transition: color 0.3s ease-in-out;
+    gap: 10px;
 }
 
 /* reset بسيط */
@@ -139,7 +140,7 @@ body.no-scroll {
   padding: 8px 18px;
   text-decoration: none;
   color: #15416d;
-  font-size: 14px;
+  font-size: 18px;
   font-weight: 100;
   z-index: 1;
 }
